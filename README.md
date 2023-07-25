@@ -5,6 +5,7 @@ KnotzGPT is a full-stack web application that incorporates frontend and backend 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Building the Application](#building-the-application)
 - [Running the Application](#running-the-application)
 - [Testing](#testing)
 - [Contributing](#contributing)
@@ -43,9 +44,19 @@ After you have Node.js and npm installed, follow these steps:
 
     Replace `your_api_key` and `your_org_key` with your actual keys. Make sure to keep this file secret and do not commit it to your version control system.
 
+## Building the Application
+
+To build the frontend application, navigate to the `src` directory and use the following command:
+
+```bash
+npm run build
+```
+
+This command creates a `build` directory with a production build of your app.
+
 ## Running the Application
 
-To start the backend server, navigate to the root of your project directory and use the following command:
+First, start the backend server. Navigate to the root of your project directory and use the following command:
 
 ```bash
 node index.js
@@ -53,13 +64,19 @@ node index.js
 
 The server will start and listen on port 3080.
 
-To start the frontend application, navigate to the `src` directory and use the following command:
+Then, to serve the built application, you will need to install the `serve` package globally if you haven't done so already:
 
 ```bash
-npm start
+npm install -g serve
 ```
 
-After running this command, open [http://localhost:3000](http://localhost:3000) to view the application in the browser.
+Now you can serve your application:
+
+```bash
+serve -s build
+```
+
+After running this command, open the URL provided in the terminal output to view the application in the browser.
 
 ## Testing
 
