@@ -6,9 +6,9 @@ import { useState, useEffect } from 'react';
 
 function App() {
   //run app once when app loads to pull available engines
-  useEffect(() => {
-    getModels();
-  }, [])
+  // useEffect(() => {
+  //   getEngines();
+  // }, [])
 
   //add state for input and chat log 
   const [input, setInput]  = useState("");
@@ -29,11 +29,11 @@ function App() {
     setChatLog([])
   }
 
-  function getModels(){
-    fetch("http://localhost:3080/models")
-    .then(res => res.json())
-    .then(data => setModels(data.models.data))
-  }
+  // function getEngines(){
+  //   fetch("http://localhost:3080/models")
+  //   .then(res => res.json())
+  //   .then(data => setModels(data.models))
+  // }
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -50,7 +50,8 @@ function App() {
       },
       body: JSON.stringify({
           message: messages,
-          currentModel,
+          // currentModel
+
         })
       });
     const data = await response.json();
@@ -60,22 +61,22 @@ function App() {
   return (
     <div className="App">
       <aside className="sidemenu">
-        <h1>Pick Model</h1>
+        <h1>Fresh Start</h1>
         <div className="side-menu-button" onClick={clearChats}>
           <span>+</span>
           Get Started!
         </div>
-        <div className='models'>
+        {/* <div className='models'>
           <select onChange={(e) => {
             setCurrentModel(e.target.value)
           }}>
-            {models.map ((model, index) => (
+            {models.map((model, index) => (
               <option key={model.id} value={model.id}>{model.id}</option>
             ))}
           </select>
 
-        </div>
-
+        </div> */}
+       
       </aside>
       <section className='chatbox'>
         <div className="chat-log">
